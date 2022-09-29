@@ -1,5 +1,6 @@
 package co.com.ud.semaforo.server.logica;
 
+import co.com.ud.semaforo.server.dto.PlanSemaforicoDto;
 import co.com.ud.semaforo.server.utiles.ServerUtilities;
 import co.com.ud.semaforo.server.vista.VistaServer;
 import java.io.IOException;
@@ -7,6 +8,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Objects;
 import lombok.Getter;
+import lombok.Setter;
 import org.apache.log4j.Logger;
 
 /**
@@ -22,6 +24,11 @@ public class ServerSemaforo {
     private Socket socket = null;
     @Getter
     private VistaServer vistaServer;
+    //Objetos usados para leer el archivo Json
+    private ReadFileJsonlogica readFileJsonlogica;
+    @Setter @Getter
+    private PlanSemaforicoDto planSemaforicoDto;
+    
     
     private EnvioMensajesLogica envioMensajesLogica;
     
@@ -33,6 +40,10 @@ public class ServerSemaforo {
             getVistaServer().setTitle("Vista Semaforo");
             getVistaServer().setVisible(true);
         }
+        this.readFileJsonlogica = new ReadFileJsonlogica();
+        if(readFileJsonlogica.extraerObjetoPlan()){
+            setPlanSemaforicoDto(readFileJsonlogica.getPlanSemaforicoDto());
+        }
     }
     
     
@@ -40,19 +51,23 @@ public class ServerSemaforo {
         try {
             // Se crea el serverSocket
             servidor = new ServerSocket(puerto, maximoConexiones);
-            
+            int numConexiones = planSemaforicoDto.getNumeroCentral();
             // Bucle infinito para esperar conexiones
-            while (true) {
+            for (int i = 0 ;i < numConexiones + 1 ; i++ ) {
                 log.info("Servidor a la espera de conexiones.");
                 socket = servidor.accept();
                 log.info("Cliente con la IP " + socket.getInetAddress().getHostName() + " conectado.");
                 
                 ConexionClienteSemaforo cc = new ConexionClienteSemaforo(socket);
-                cc.setIdCliente(ServerUtilities.generarNumero());
+                cc.setIdCliente(getPlanSemaforicoDto().getGrpSemaforico().get(i).getNro());
+                cc.setNombre(getPlanSemaforicoDto().getGrpSemaforico().get(i).getNombre());
+                cc.setTipoSemaforoUno(getPlanSemaforicoDto().getGrpSemaforico().get(i).getTipoSemaforoUno());
+                cc.setTipoSemaforoDos(getPlanSemaforicoDto().getGrpSemaforico().get(i).getTipoSemaforoDos());
                 cc.start();
                 envioMensajesLogica.adicionarConexion(cc);  
                 getVistaServer().getConectadosTextArea().append("\nCliente " + envioMensajesLogica.getCentralesSemaforicas().size() + " con el id: " + cc.getIdCliente());
             }
+            System.out.println("Se han vinculado los grupos necesarios");
         } catch (IOException ex) {
             log.error("Error: " + ex.getMessage());
         } finally{

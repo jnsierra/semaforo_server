@@ -19,6 +19,8 @@ import lombok.Setter;
 public class VistaServer extends javax.swing.JFrame {
 
     private SemaforoServerControlador semaforoServerControlador;
+    private EjecucionCicloModel ejecucionCicloModel;
+    
     private ServerSemaforo serverSemaforo;
     private EnvioMensajesLogica envioMensajesLogica;
     /**
@@ -30,12 +32,16 @@ public class VistaServer extends javax.swing.JFrame {
         if(Objects.isNull(this.semaforoServerControlador)){
             this.semaforoServerControlador = new SemaforoServerControlador(this, serverSemaforo, this.envioMensajesLogica);
         }
+        if(Objects.isNull(this.ejecucionCicloModel)){
+            this.ejecucionCicloModel = new EjecucionCicloModel(this, serverSemaforo, envioMensajesLogica);
+        }
         initComponents();
         capturarEventos();
     }
     
     private void capturarEventos(){
         enviarMensaje.addActionListener(semaforoServerControlador);
+        ejecutarInicioBtn.addActionListener(ejecucionCicloModel);
     }
 
     /**
@@ -56,6 +62,7 @@ public class VistaServer extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         idClienteText = new javax.swing.JTextField();
+        ejecutarInicioBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -100,6 +107,14 @@ public class VistaServer extends javax.swing.JFrame {
         });
         getContentPane().add(idClienteText, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 100, -1));
 
+        ejecutarInicioBtn.setText("Ejecutar");
+        ejecutarInicioBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ejecutarInicioBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ejecutarInicioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -115,8 +130,13 @@ public class VistaServer extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_idClienteTextActionPerformed
 
+    private void ejecutarInicioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ejecutarInicioBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ejecutarInicioBtnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea conectadosTextArea;
+    private javax.swing.JButton ejecutarInicioBtn;
     private javax.swing.JButton enviarMensaje;
     private javax.swing.JTextField idClienteText;
     private javax.swing.JLabel jLabel1;

@@ -1,0 +1,246 @@
+{
+    "nombreInterseccion": "Primera de Mayo",
+    "numeroCentral":"5",
+    "grpSemaforico": [
+        {
+            "nro": "1",
+            "nombre": "Grupo Semaforico 1",
+            "tipoSemaforoUno": "peatonal",
+            "tipoSemaforoDos": "peatonal",
+            "pasos":[
+                {
+                    "accion": "00010100",
+                    "tiempo": "1"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "2"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "3"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "4"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "5"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "6"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "7"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "8"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "9"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "10"
+                }
+            ]
+        },
+        {
+            "nro": "2",
+            "nombre": "Grupo Semaforico 2",
+            "tipoSemaforoUno": "peatonal",
+            "tipoSemaforoDos": "vehicular",
+            "pasos":[
+                {
+                    "accion": "00010001",
+                    "tiempo": "1"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "2"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "3"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "4"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "5"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "6"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "7"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "8"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "9"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "10"
+                }
+            ]
+        },
+        {
+            "nro": "3",
+            "nombre": "Grupo Semaforico 3",
+            "tipoSemaforoUno": "peatonal",
+            "tipoSemaforoDos": "vehicular",
+            "pasos":[
+                {
+                    "accion": "00010100",
+                    "tiempo": "1"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "2"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "3"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "4"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "5"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "6"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "7"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "8"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "9"
+                },
+                {
+                    "accion": "00010100",
+                    "tiempo": "10"
+                }
+            ]
+        },
+        {
+            "nro": "4",
+            "nombre": "Grupo Semaforico 4",
+            "tipoSemaforoUno": "vehicular",
+            "tipoSemaforoDos": "peatonal",
+            "pasos":[
+                {
+                    "accion": "00010001",
+                    "tiempo": "1"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "2"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "3"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "4"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "5"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "6"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "7"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "8"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "9"
+                },
+                {
+                    "accion": "00010001",
+                    "tiempo": "10"
+                }
+            ]
+        },
+        {
+            "nro": "5",
+            "nombre": "Grupo Semaforico 5",
+            "tipoSemaforoUno": "peatonal",
+            "tipoSemaforoDos": "peatonal",
+            "pasos":[
+                {
+                    "accion": "00010000",
+                    "tiempo": "1"
+                },
+                {
+                    "accion": "00010000",
+                    "tiempo": "2"
+                },
+                {
+                    "accion": "00010000",
+                    "tiempo": "3"
+                },
+                {
+                    "accion": "00010000",
+                    "tiempo": "4"
+                },
+                {
+                    "accion": "00010000",
+                    "tiempo": "5"
+                },
+                {
+                    "accion": "00010000",
+                    "tiempo": "6"
+                },
+                {
+                    "accion": "00010000",
+                    "tiempo": "7"
+                },
+                {
+                    "accion": "00010000",
+                    "tiempo": "8"
+                },
+                {
+                    "accion": "00010000",
+                    "tiempo": "9"
+                },
+                {
+                    "accion": "00010000",
+                    "tiempo": "10"
+                }
+            ]
+        }
+    ]
+}

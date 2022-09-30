@@ -1,6 +1,6 @@
 {
     "nombreInterseccion": "Primera de Mayo",
-    "numeroCentral":"5",
+    "numeroCentral":"2",
     "grpSemaforico": [
         {
             "nro": "1",
@@ -47,7 +47,20 @@
                 {
                     "accion": "00010100",
                     "tiempo": "10"
+                },
+                {
+                    "accion": "01000001",
+                    "tiempo": "11"
+                },
+                {
+                    "accion": "01000001",
+                    "tiempo": "12"
+                },
+                {
+                    "accion": "01000001",
+                    "tiempo": "13"
                 }
+                
             ]
         },
         {
@@ -95,7 +108,20 @@
                 {
                     "accion": "00010001",
                     "tiempo": "10"
+                },
+                {
+                    "accion": "01001001",
+                    "tiempo": "11"
+                },
+                {
+                    "accion": "01001001",
+                    "tiempo": "12"
+                },
+                {
+                    "accion": "01001001",
+                    "tiempo": "13"
                 }
+                
             ]
         },
         {

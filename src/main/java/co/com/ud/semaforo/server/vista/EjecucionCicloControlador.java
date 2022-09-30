@@ -14,14 +14,14 @@ import java.awt.event.ActionListener;
  *
  * @author sierraj
  */
-public class EjecucionCicloModel implements ActionListener{
+public class EjecucionCicloControlador implements ActionListener{
     
     private VistaServer vista;
     private ServerSemaforo serverSemaforo;
     private EnvioMensajesLogica envioMensajesLogica;
     private EjecucionCicloLogico ejecucionCicloLogico;
 
-    public EjecucionCicloModel(VistaServer vista, ServerSemaforo serverSemaforo, EnvioMensajesLogica envioMensajesLogica) {
+    public EjecucionCicloControlador(VistaServer vista, ServerSemaforo serverSemaforo, EnvioMensajesLogica envioMensajesLogica) {
         this.vista = vista;
         this.serverSemaforo = serverSemaforo;
         this.envioMensajesLogica = envioMensajesLogica;

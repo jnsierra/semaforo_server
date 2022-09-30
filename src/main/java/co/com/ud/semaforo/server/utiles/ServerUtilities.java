@@ -18,4 +18,8 @@ public class ServerUtilities {
         return random.nextInt(100);
     }
     
+    public static String eliminarCerosIzq(String valor){
+        return valor.replaceFirst("^0+(?!$)", "");
+    }
+    
 }

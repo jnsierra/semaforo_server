@@ -19,7 +19,7 @@ import lombok.Setter;
 public class VistaServer extends javax.swing.JFrame {
 
     private SemaforoServerControlador semaforoServerControlador;
-    private EjecucionCicloModel ejecucionCicloModel;
+    private EjecucionCicloControlador ejecucionCicloModel;
     
     private ServerSemaforo serverSemaforo;
     private EnvioMensajesLogica envioMensajesLogica;
@@ -33,7 +33,7 @@ public class VistaServer extends javax.swing.JFrame {
             this.semaforoServerControlador = new SemaforoServerControlador(this, serverSemaforo, this.envioMensajesLogica);
         }
         if(Objects.isNull(this.ejecucionCicloModel)){
-            this.ejecucionCicloModel = new EjecucionCicloModel(this, serverSemaforo, envioMensajesLogica);
+            this.ejecucionCicloModel = new EjecucionCicloControlador(this, serverSemaforo, envioMensajesLogica);
         }
         initComponents();
         capturarEventos();

@@ -28,6 +28,8 @@ public class ServerSemaforo {
     private ReadFileJsonlogica readFileJsonlogica;
     @Setter @Getter
     private PlanSemaforicoDto planSemaforicoDto;
+    @Setter
+    private int numConexiones;
     
     
     private EnvioMensajesLogica envioMensajesLogica;
@@ -35,15 +37,13 @@ public class ServerSemaforo {
 
     public ServerSemaforo() {
         this.envioMensajesLogica = new EnvioMensajesLogica();
+        this.numConexiones = 1;
         if(Objects.isNull(vistaServer)){
             this.vistaServer = new VistaServer(this, this.envioMensajesLogica);
             getVistaServer().setTitle("Vista Semaforo");
             getVistaServer().setVisible(true);
         }
         this.readFileJsonlogica = new ReadFileJsonlogica();
-        if(readFileJsonlogica.extraerObjetoPlan()){
-            setPlanSemaforicoDto(readFileJsonlogica.getPlanSemaforicoDto());
-        }
     }
     
     
@@ -51,7 +51,6 @@ public class ServerSemaforo {
         try {
             // Se crea el serverSocket
             servidor = new ServerSocket(puerto, maximoConexiones);
-            int numConexiones = planSemaforicoDto.getNumeroCentral();
             // Bucle infinito para esperar conexiones
             for (int i = 0 ;i < numConexiones + 1 ; i++ ) {
                 log.info("Servidor a la espera de conexiones.");

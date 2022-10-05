@@ -4,7 +4,9 @@
  */
 package co.com.ud.semaforo.server.vista;
 
+import co.com.ud.semaforo.server.dto.PlanSemaforicoDto;
 import co.com.ud.semaforo.server.logica.EnvioMensajesLogica;
+import co.com.ud.semaforo.server.logica.ReadFileJsonlogica;
 import co.com.ud.semaforo.server.logica.ServerSemaforo;
 import java.util.Objects;
 import lombok.Getter;
@@ -23,6 +25,9 @@ public class VistaServer extends javax.swing.JFrame {
     
     private ServerSemaforo serverSemaforo;
     private EnvioMensajesLogica envioMensajesLogica;
+    
+    @Setter @Getter
+    private PlanSemaforicoDto planSemaforicoDto;
     /**
      * Creates new form VistaServer
      */
@@ -40,7 +45,7 @@ public class VistaServer extends javax.swing.JFrame {
     }
     
     private void capturarEventos(){
-        enviarMensaje.addActionListener(semaforoServerControlador);
+        cargarInformacionBtn.addActionListener(semaforoServerControlador);
         ejecutarInicioBtn.addActionListener(ejecucionCicloModel);
     }
 
@@ -53,40 +58,23 @@ public class VistaServer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        enviarMensaje = new javax.swing.JButton();
-        msnTxt = new javax.swing.JTextField();
+        cargarInformacionBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         conectadosTextArea = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        idClienteText = new javax.swing.JTextField();
         ejecutarInicioBtn = new javax.swing.JButton();
+        filesCombo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Enviar Mensaje");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        jLabel2.setText("Mensaje: ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
-
-        enviarMensaje.setText("Enviar");
-        enviarMensaje.addActionListener(new java.awt.event.ActionListener() {
+        cargarInformacionBtn.setText("Cargar Informacion");
+        cargarInformacionBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enviarMensajeActionPerformed(evt);
+                cargarInformacionBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(enviarMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
-
-        msnTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                msnTxtActionPerformed(evt);
-            }
-        });
-        getContentPane().add(msnTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 100, -1));
+        getContentPane().add(cargarInformacionBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
         conectadosTextArea.setColumns(20);
         conectadosTextArea.setRows(5);
@@ -97,53 +85,35 @@ public class VistaServer extends javax.swing.JFrame {
         jLabel3.setText("Conectados");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
 
-        jLabel4.setText("Id Cliente:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
-
-        idClienteText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idClienteTextActionPerformed(evt);
-            }
-        });
-        getContentPane().add(idClienteText, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 100, -1));
-
         ejecutarInicioBtn.setText("Ejecutar");
+        ejecutarInicioBtn.setEnabled(false);
         ejecutarInicioBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ejecutarInicioBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(ejecutarInicioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        getContentPane().add(ejecutarInicioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+
+        filesCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Intersección 1 (Calle 34 Cra 28)", "Intersección 2", "Intersección 3" }));
+        getContentPane().add(filesCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void enviarMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarMensajeActionPerformed
+    private void cargarInformacionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarInformacionBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_enviarMensajeActionPerformed
-
-    private void msnTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msnTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_msnTxtActionPerformed
-
-    private void idClienteTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idClienteTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idClienteTextActionPerformed
+    }//GEN-LAST:event_cargarInformacionBtnActionPerformed
 
     private void ejecutarInicioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ejecutarInicioBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ejecutarInicioBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cargarInformacionBtn;
     private javax.swing.JTextArea conectadosTextArea;
     private javax.swing.JButton ejecutarInicioBtn;
-    private javax.swing.JButton enviarMensaje;
-    private javax.swing.JTextField idClienteText;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JComboBox<String> filesCombo;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField msnTxt;
     // End of variables declaration//GEN-END:variables
 }

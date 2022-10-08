@@ -1,6 +1,7 @@
 {
     "nombreInterseccion": "Primera de Mayo",
     "numeroCentral":"2",
+    "cicloIntersecion": "120",
     "grpSemaforico": [
         {
             "nro": "1",

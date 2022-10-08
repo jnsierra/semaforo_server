@@ -25,12 +25,14 @@ public class EjecucionCicloLogico {
             JOptionPane.showMessageDialog(null, "El numero de conexiones de grupos semaforicos deben ser: " + planSemaforicoDto.getNumeroCentral());
         } else {
             //Genero el ciclo deseado
-            for (int i = 1; i <= 13; i++) {
-                this.enviaSeñal(planSemaforicoDto, envioMsn, i);
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(EjecucionCicloLogico.class.getName()).log(Level.SEVERE, null, ex);
+            while (true) {                
+                for (int i = 1; i <= planSemaforicoDto.getCicloIntersecion() ; i++) {
+                    this.enviaSeñal(planSemaforicoDto, envioMsn, i);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(EjecucionCicloLogico.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             }
         }

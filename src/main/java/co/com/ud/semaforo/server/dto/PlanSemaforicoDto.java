@@ -17,5 +17,6 @@ public class PlanSemaforicoDto {
     private String nombreInterseccion;
     private Integer numeroCentral; 
     private List<GrupoSemaforicoDto> grpSemaforico;
+    private Integer cicloIntersecion;
     
 }

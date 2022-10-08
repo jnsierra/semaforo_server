@@ -1,11 +1,17 @@
 {
     "nombreInterseccion": "Calle 13 calle 41",
     "numeroCentral": "4",
+    "cicloIntersecion": "90",
     "grpSemaforico": [
         {
             "nro": "1",
             "nombre": "Grupo Semaforico 1",
-            "tipoSemaforoUno": "vehicular",
+            "semaforos": [
+                {
+                    "tipo": "vehicular",
+                    "cantidad": "3"
+                }
+            ],
             "pasos": [
                 {
                     "color": "V",
@@ -462,8 +468,13 @@
         {
             "nro": "4",
             "nombre": "Grupo Semaforico 4",
-            "tipoSemaforoUno": "vehicular",
-            "pasos":
+            "semaforos": [
+                {
+                    "tipo": "vehicular",
+                    "cantidad": "1"
+                }
+            ],
+                "pasos":
                     [
                         {
                             "color": "R",
@@ -920,8 +931,13 @@
         {  
             "nro": "21",
             "nombre": "Grupo Semaforico 21",
-            "tipoSemaforoUno": "peatonal",
-            "pasos":
+            "semaforos": [
+                {
+                    "tipo": "peatonal",
+                    "cantidad": "2"
+                }
+            ],
+                "pasos":
                     [
                         {
                             "color": "R",
@@ -1378,7 +1394,13 @@
         {
             "nro": "24",
             "nombre": "Grupo Semaforico 24",
-            "tipoSemaforoUno": "peatonal",
+            "semaforos": [
+                {
+                    "tipo": "peatonal",
+                    "cantidad": "2"
+                }
+            ],
+            
             "pasos": [
                 {
                     "color": "V",

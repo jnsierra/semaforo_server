@@ -1,11 +1,17 @@
 {
     "nombreInterseccion": "Carrera 80 Diagonal 43 sur",
     "numeroCentral": "5",
+    "cicloIntersecion": "120",
     "grpSemaforico": [
         {
             "nro": "1",
             "nombre": "Grupo Semaforico 1",
-            "tipoSemaforoUno": "vehicular",
+            "semaforos": [
+                {
+                    "tipo": "vehicular",
+                    "cantidad": "2"
+                }
+            ],
             "pasos": [
                 {
                     "color": "V",
@@ -612,7 +618,12 @@
         {
             "nro": "2",
             "nombre": "Grupo Semaforico 2",
-            "tipoSemaforoUno": "vehicular",
+            "semaforos": [
+                {
+                    "tipo": "vehicular",
+                    "cantidad": "2"
+                }
+            ],
             "pasos": [
                 {
                     "color": "A",
@@ -1219,7 +1230,12 @@
         {
             "nro": "3",
             "nombre": "Grupo Semaforico 3",
-            "tipoSemaforoUno": "vehicular",
+            "semaforos": [
+                {
+                    "tipo": "vehicular",
+                    "cantidad": "4"
+                }
+            ],
             "pasos": [
                 {
                     "color": "R",
@@ -1826,7 +1842,12 @@
         {
             "nro": "4",
             "nombre": "Grupo Semaforico 4",
-            "tipoSemaforoUno": "vehicular",
+            "semaforos": [
+                {
+                    "tipo": "vehicular",
+                    "cantidad": "3"
+                }
+            ],
             "pasos": [
                 {
                     "color": "R",
@@ -2433,7 +2454,12 @@
         {
             "nro": "5",
             "nombre": "Grupo Semaforico 5",
-            "tipoSemaforoUno": "vehicular",
+            "semaforos": [
+                {
+                    "tipo": "vehicular",
+                    "cantidad": "1"
+                }
+            ],
             "pasos": [
                 {
                     "color": "R",

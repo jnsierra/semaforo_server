@@ -38,10 +38,9 @@ public class EjecucionCicloLogico extends Thread {
     @Override
     public void run() {
         while (continuar) {
-            this.vista.getConectadosTextArea().append("Inicia el cilco: " + this.ciclo);
-            this.vista.getConectadosTextArea().append(System.lineSeparator());
+            this.vista.getCicloText().setText("Inicia el cilco: " + this.ciclo);
             for (int i = 1; i <= planSemaforicoDto.getCicloIntersecion(); i++) {
-                this.vista.getConectadosTextArea().append("Segundo: " + i);
+                this.vista.getTimerText().setText("Segundo: " + i);
                 this.vista.getConectadosTextArea().append(System.lineSeparator());
                 this.enviaSeñal(planSemaforicoDto, envioMsn, i);
                 try {

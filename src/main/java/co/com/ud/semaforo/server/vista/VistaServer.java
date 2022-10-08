@@ -65,6 +65,10 @@ public class VistaServer extends javax.swing.JFrame {
         ejecutarInicioBtn = new javax.swing.JButton();
         filesCombo = new javax.swing.JComboBox<>();
         pararButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        timerText = new javax.swing.JTextField();
+        cicloText = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -82,10 +86,10 @@ public class VistaServer extends javax.swing.JFrame {
         conectadosTextArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(conectadosTextArea);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, -1, -1));
 
-        jLabel3.setText("Log de eventos:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
+        jLabel3.setText("Conectados");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
 
         ejecutarInicioBtn.setText("Ejecutar");
         ejecutarInicioBtn.setEnabled(false);
@@ -102,6 +106,14 @@ public class VistaServer extends javax.swing.JFrame {
         pararButton.setText("Parar");
         getContentPane().add(pararButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
+        jLabel1.setText("Timer:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, -1));
+
+        jLabel2.setText("Ciclo:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, -1, -1));
+        getContentPane().add(timerText, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 180, -1));
+        getContentPane().add(cicloText, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 180, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -115,11 +127,15 @@ public class VistaServer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cargarInformacionBtn;
+    private javax.swing.JTextField cicloText;
     private javax.swing.JTextArea conectadosTextArea;
     private javax.swing.JButton ejecutarInicioBtn;
     private javax.swing.JComboBox<String> filesCombo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton pararButton;
+    private javax.swing.JTextField timerText;
     // End of variables declaration//GEN-END:variables
 }

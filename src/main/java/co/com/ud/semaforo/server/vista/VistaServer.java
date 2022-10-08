@@ -94,7 +94,7 @@ public class VistaServer extends javax.swing.JFrame {
         });
         getContentPane().add(ejecutarInicioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
-        filesCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Intersección 1 (Calle 34 Cra 28)", "Intersección 2", "Intersección 3" }));
+        filesCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Intersección 1 (Calle 34 Cra 28)", "Intersección 2 (Cra 80 x Dg 43 Sur)", "Intersección 3 (Cra 13 x Calle 41)" }));
         getContentPane().add(filesCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
         pack();

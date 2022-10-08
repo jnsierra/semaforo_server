@@ -87,8 +87,8 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
             <StringItem index="0" value="Intersecci&#xf3;n 1 (Calle 34 Cra 28)"/>
-            <StringItem index="1" value="Intersecci&#xf3;n 2"/>
-            <StringItem index="2" value="Intersecci&#xf3;n 3"/>
+            <StringItem index="1" value="Intersecci&#xf3;n 2 (Cra 80 x Dg 43 Sur)"/>
+            <StringItem index="2" value="Intersecci&#xf3;n 3 (Cra 13 x Calle 41)"/>
           </StringArray>
         </Property>
       </Properties>

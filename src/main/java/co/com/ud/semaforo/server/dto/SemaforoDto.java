@@ -4,7 +4,6 @@
  */
 package co.com.ud.semaforo.server.dto;
 
-import java.util.List;
 import lombok.Data;
 
 /**
@@ -12,11 +11,9 @@ import lombok.Data;
  * @author sierraj
  */
 @Data
-public class GrupoSemaforicoDto {
-    
-    private Integer nro;
-    private String nombre;
-    private List<SemaforoDto> semaforos;
-    private List<PasoDto> pasos;
+public class SemaforoDto {
+   
+    private String tipo;
+    private Integer cantidad; 
     
 }

@@ -64,6 +64,7 @@ public class VistaServer extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         ejecutarInicioBtn = new javax.swing.JButton();
         filesCombo = new javax.swing.JComboBox<>();
+        pararButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -78,11 +79,12 @@ public class VistaServer extends javax.swing.JFrame {
 
         conectadosTextArea.setColumns(20);
         conectadosTextArea.setRows(5);
+        conectadosTextArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(conectadosTextArea);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, -1, -1));
 
-        jLabel3.setText("Conectados");
+        jLabel3.setText("Log de eventos:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
 
         ejecutarInicioBtn.setText("Ejecutar");
@@ -96,6 +98,9 @@ public class VistaServer extends javax.swing.JFrame {
 
         filesCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Intersección 1 (Calle 34 Cra 28)", "Intersección 2 (Cra 80 x Dg 43 Sur)", "Intersección 3 (Cra 13 x Calle 41)" }));
         getContentPane().add(filesCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+
+        pararButton.setText("Parar");
+        getContentPane().add(pararButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -115,5 +120,6 @@ public class VistaServer extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> filesCombo;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton pararButton;
     // End of variables declaration//GEN-END:variables
 }

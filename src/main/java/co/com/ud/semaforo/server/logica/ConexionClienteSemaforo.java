@@ -1,10 +1,12 @@
 package co.com.ud.semaforo.server.logica;
 
+import co.com.ud.semaforo.server.dto.SemaforoDto;
+import com.google.gson.Gson;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.logging.Level;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.log4j.Logger;
@@ -24,9 +26,7 @@ public class ConexionClienteSemaforo extends Thread {
     @Getter @Setter
     private String nombre;
     @Getter @Setter
-    private String tipoSemaforoUno;
-    @Getter @Setter
-    private String tipoSemaforoDos;
+    private List<SemaforoDto> semaforos;
     
     private Boolean mensajeInicioEnviado;
 
@@ -92,7 +92,8 @@ public class ConexionClienteSemaforo extends Thread {
     }
     
     private void enviarMensajeInicializacionSemaforos(){
-        enviarMSN("MSNINISEMAFORO|"+ this.getTipoSemaforoUno() + "|" +  this.getTipoSemaforoDos());
+        Gson gson = new Gson();
+        enviarMSN("MSNINISEMAFORO|"+ gson.toJson(this.semaforos));
     }
 
 }

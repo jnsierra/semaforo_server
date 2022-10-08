@@ -7,7 +7,6 @@ package co.com.ud.semaforo.server.vista;
 import co.com.ud.semaforo.server.dto.PlanSemaforicoDto;
 import co.com.ud.semaforo.server.logica.EjecucionCicloLogico;
 import co.com.ud.semaforo.server.logica.EnvioMensajesLogica;
-import co.com.ud.semaforo.server.logica.ReadFileJsonlogica;
 import co.com.ud.semaforo.server.logica.ServerSemaforo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -39,8 +38,14 @@ public class EjecucionCicloControlador implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        setPlanSemaforicoDto(this.vista.getPlanSemaforicoDto());
-        this.ejecucionCicloLogico.execute(getPlanSemaforicoDto(), envioMensajesLogica);
+        //Valido si es posible iniciar la ejecucion del plan
+        this.ejecucionCicloLogico.setPlanSemaforicoDto(this.vista.getPlanSemaforicoDto());
+        this.ejecucionCicloLogico.setEnvioMsn(envioMensajesLogica);
+        this.ejecucionCicloLogico.setVista(vista);
+        if(this.ejecucionCicloLogico.validateConnections()){
+            this.ejecucionCicloLogico.setContinuar(Boolean.TRUE);
+            this.ejecucionCicloLogico.start();
+        }
     }
     
 }

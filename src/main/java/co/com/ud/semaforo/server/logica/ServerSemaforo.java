@@ -1,7 +1,6 @@
 package co.com.ud.semaforo.server.logica;
 
 import co.com.ud.semaforo.server.dto.PlanSemaforicoDto;
-import co.com.ud.semaforo.server.utiles.ServerUtilities;
 import co.com.ud.semaforo.server.vista.VistaServer;
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -60,11 +59,11 @@ public class ServerSemaforo {
                 ConexionClienteSemaforo cc = new ConexionClienteSemaforo(socket);
                 cc.setIdCliente(getPlanSemaforicoDto().getGrpSemaforico().get(i).getNro());
                 cc.setNombre(getPlanSemaforicoDto().getGrpSemaforico().get(i).getNombre());
-                cc.setTipoSemaforoUno(getPlanSemaforicoDto().getGrpSemaforico().get(i).getTipoSemaforoUno());
-                cc.setTipoSemaforoDos(getPlanSemaforicoDto().getGrpSemaforico().get(i).getTipoSemaforoDos());
+                cc.setSemaforos(getPlanSemaforicoDto().getGrpSemaforico().get(i).getSemaforos());
                 cc.start();
                 envioMensajesLogica.adicionarConexion(cc);  
-                getVistaServer().getConectadosTextArea().append("\nCliente " + envioMensajesLogica.getCentralesSemaforicas().size() + " con el id: " + cc.getIdCliente());
+                getVistaServer().getConectadosTextArea().append("Cliente " + envioMensajesLogica.getCentralesSemaforicas().size() + " con el id: " + cc.getIdCliente());
+                getVistaServer().getConectadosTextArea().append(System.lineSeparator());
             }
             System.out.println("Se han vinculado los grupos necesarios");
         } catch (IOException ex) {

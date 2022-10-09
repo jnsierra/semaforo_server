@@ -22,6 +22,7 @@ public class VistaServer extends javax.swing.JFrame {
 
     private SemaforoServerControlador semaforoServerControlador;
     private EjecucionCicloControlador ejecucionCicloModel;
+    private PararCicloControlador pararCicloControlador;
     
     private ServerSemaforo serverSemaforo;
     private EnvioMensajesLogica envioMensajesLogica;
@@ -40,6 +41,9 @@ public class VistaServer extends javax.swing.JFrame {
         if(Objects.isNull(this.ejecucionCicloModel)){
             this.ejecucionCicloModel = new EjecucionCicloControlador(this, serverSemaforo, envioMensajesLogica);
         }
+        if(Objects.isNull(this.pararCicloControlador)){
+            this.pararCicloControlador = new PararCicloControlador(this);
+        }
         initComponents();
         capturarEventos();
     }
@@ -47,6 +51,7 @@ public class VistaServer extends javax.swing.JFrame {
     private void capturarEventos(){
         cargarInformacionBtn.addActionListener(semaforoServerControlador);
         ejecutarInicioBtn.addActionListener(ejecucionCicloModel);
+        pararButton.addActionListener(pararCicloControlador);
     }
 
     /**
@@ -104,6 +109,7 @@ public class VistaServer extends javax.swing.JFrame {
         getContentPane().add(filesCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
         pararButton.setText("Parar");
+        pararButton.setEnabled(false);
         getContentPane().add(pararButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
         jLabel1.setText("Timer:");

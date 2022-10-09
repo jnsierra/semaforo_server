@@ -22,6 +22,7 @@ public class EjecucionCicloControlador implements ActionListener{
     private VistaServer vista;
     private ServerSemaforo serverSemaforo;
     private EnvioMensajesLogica envioMensajesLogica;
+    @Setter @Getter
     private EjecucionCicloLogico ejecucionCicloLogico;
    
     @Setter @Getter
@@ -33,11 +34,11 @@ public class EjecucionCicloControlador implements ActionListener{
         this.vista = vista;
         this.serverSemaforo = serverSemaforo;
         this.envioMensajesLogica = envioMensajesLogica;
-        this.ejecucionCicloLogico = new EjecucionCicloLogico();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        this.ejecucionCicloLogico = new EjecucionCicloLogico();
         //Valido si es posible iniciar la ejecucion del plan
         this.ejecucionCicloLogico.setPlanSemaforicoDto(this.vista.getPlanSemaforicoDto());
         this.ejecucionCicloLogico.setEnvioMsn(envioMensajesLogica);
@@ -45,6 +46,9 @@ public class EjecucionCicloControlador implements ActionListener{
         if(this.ejecucionCicloLogico.validateConnections()){
             this.ejecucionCicloLogico.setContinuar(Boolean.TRUE);
             this.ejecucionCicloLogico.start();
+            this.vista.getPararCicloControlador().setEjecucionCicloLogico(ejecucionCicloLogico);
+            this.vista.getEjecutarInicioBtn().setEnabled(false);
+            this.vista.getPararButton().setEnabled(true);
         }
     }
     

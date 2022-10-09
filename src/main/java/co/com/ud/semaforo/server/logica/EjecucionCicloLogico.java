@@ -9,10 +9,13 @@ import co.com.ud.semaforo.server.dto.PasoDto;
 import co.com.ud.semaforo.server.dto.PlanSemaforicoDto;
 import co.com.ud.semaforo.server.utiles.ServerUtilities;
 import co.com.ud.semaforo.server.vista.VistaServer;
+import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 import lombok.Data;
 
@@ -33,15 +36,14 @@ public class EjecucionCicloLogico extends Thread {
         this.continuar = Boolean.FALSE;
         this.ciclo = 1;
     }
-    
-    
+
     @Override
     public void run() {
+        this.cicloArranque();
         while (continuar) {
             this.vista.getCicloText().setText("Inicia el cilco: " + this.ciclo);
-            for (int i = 1; i <= planSemaforicoDto.getCicloIntersecion(); i++) {
+            for (int i = 1; i <= planSemaforicoDto.getCicloIntersecion() && continuar; i++) {
                 this.vista.getTimerText().setText("Segundo: " + i);
-                this.vista.getConectadosTextArea().append(System.lineSeparator());
                 this.enviaSeñal(planSemaforicoDto, envioMsn, i);
                 try {
                     Thread.sleep(1000);
@@ -50,7 +52,37 @@ public class EjecucionCicloLogico extends Thread {
                 }
             }
         }
+        if(!continuar){
+            apagarSemaforo();
+        }
+    }
 
+    public void cicloArranque() {
+        //Obtengo la lista de cetrales
+        List<Integer> centrales = envioMsn.getCentralesSemaforicas().stream().parallel().map(item -> item.getIdCliente())
+                .collect(Collectors.toList());
+        for (int i = 0; i < 4; i++) {
+            this.vista.getCicloText().setText("Inicia arranque: " + i);
+            for (Integer item : centrales) {
+                //Envio a todos los semaforos la señal de naranja intermitente
+                envioMsn.enviarMensaje(item, "170");
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(EjecucionCicloLogico.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    public void apagarSemaforo() {
+        List<Integer> centrales = envioMsn.getCentralesSemaforicas().stream().parallel().map(item -> item.getIdCliente())
+                .collect(Collectors.toList());
+        this.vista.getCicloText().setText("Apagando semaforos ....  ");
+        for (Integer item : centrales) {
+            //Envio a todos los semaforos la señal de naranja intermitente
+            envioMsn.enviarMensaje(item, "0");
+        }
     }
 
     public Boolean validateConnections() {
